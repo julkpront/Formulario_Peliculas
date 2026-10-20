@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Películas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎬 Mis películas</h1>
+
+  <!-- ================= FORMULARIO (añadir / editar) ================= -->
+  <section>
+    <h2 id="tituloFormulario">Añadir película</h2>
+
+    <!-- novalidate: así los mensajes de error los ponemos nosotros con JavaScript -->
+    <form id="formulario" novalidate>
+
+      <label for="titulo">Título</label>
+      <input type="text" id="titulo" placeholder="Ej: El Resplandor">
+
+      
+      <label for="año">Año</label>
+      <input type="text" id="año" placeholder="Ej: 1980">
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" rows="3" placeholder="Breve descripción"></textarea>
+
+      <label for="foto">URL de la foto</label>
+      <input type="text" id="foto" placeholder="https://...">
+
+      <label for="genero">Género</label>
+      <select id="genero">
+        <option value="">-- Elige un género --</option>
+        <option value="terror">Terror</option>
+        <option value="acción">Acción</option>
+        <option value="comedia">Comedia</option>
+        <option value="romántica">Romántica</option>
+      </select>
+
+      <!-- Aquí aparecen los errores de validación -->
+      <ul id="errores"></ul>
+
+      <button type="submit" id="botonGuardar">Añadir película</button>
+      <!-- Este botón solo se ve cuando estamos editando -->
+      <button type="button" id="botonCancelar" hidden>Cancelar</button>
+    </form>
+  </section>
+
+  <!-- ================= FILTROS ================= -->
+  <section>
+    <h2>Filtros</h2>
+
+    <label for="filtroGenero">Por género</label>
+    <select id="filtroGenero">
+      <option value="todos">Todos</option>
+      <option value="terror">Terror</option>
+      <option value="acción">Acción</option>
+      <option value="comedia">Comedia</option>
+      <option value="romántica">Romántica</option>
+    </select>
+
+    <label for="filtroTexto">Por nombre</label>
+    <input type="text" id="filtroTexto" placeholder="Escribe el nombre de una película...">
+  </section>
+
+  <!-- ================= TABLA ================= -->
+  <section>
+    <h2>Listado</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Título</th>
+          <th>Año</th>
+          <th>Género</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <!-- Las filas se rellenan desde script.js -->
+      <tbody id="cuerpoTabla"></tbody>
+    </table>
+  </section>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
